@@ -49,13 +49,13 @@ function saludo(idioma) {
   // Si "idioma" es "ingles", devuelve "Hello!"
   // Si "idioma" no es ninguno de los anteiores o es `undefined` devuelve "Hola!"
   // Tu código:
-  if (idioma.toLowerCase() === "aleman"){
+  if (idioma === "aleman"){
     return "Guten Tag!";
   } 
-  else if (idioma.toLowerCase() === "mandarin"){
+  else if (idioma === "mandarin"){
     return "Ni Hao!";
   }
-  else if (idioma.toLowerCase() === "ingles"){
+  else if (idioma === "ingles"){
     return "Hello!";
   }
   else{
@@ -72,13 +72,13 @@ function colors(color) {
   //Caso default: devuelve --> "Color not found"
   //Usar el statement Switch.
   switch (color) {
-    case blue:
+    case "blue":
       return "This is blue";
-    case red:
+    case "red":
       return "This is red";
-    case green:
+    case "green":
       return "This is green";
-    case orange:
+    case "orange":
       return "This is orange";
     default:
       return "Color not found";
@@ -151,18 +151,18 @@ function operadoresLogicos(num1, num2, num3) {
   //Si num3 es más grande que num1 y num2, aumentar su valor en 1 y retornar el nuevo valor.
   //0 no es ni positivo ni negativo. Si alguno de los argumentos es 0, retornar "Error".
   //Si no se cumplen ninguna de las condiciones anteriores, retornar false. 
-  if (num1 > num2 && num1 > num3 && esEntero(num1/2)){
-    return "Número 1 es mayor y positivo";
-  }
-  else if(num1 < 0 || num2 < 0 || num3 < 0){
+  if (num1 < 0 || num2 < 0 || num3 < 0){
     return "Hay negativos";
+  }
+  else if(num1 === 0 || num2 === 0 || num3 === 0){
+    return "Error";
+  }
+  else if(num1 > num2 && num1 > num3 && esEntero(num1/2)){
+    return "Número 1 es mayor y positivo";
   } 
   else if(num3 > num2 && num3 > num1){
     num3++;
     return num3;
-  }
-  else if(num1 === 0 || num2 === 0 || num3 ===0){
-    return "Error";
   }
   else{
     return false;
@@ -175,9 +175,12 @@ function esPrimo(numero) {
   // Pista: un número primo solo es divisible por sí mismo y por 1
   // Pista 2: Puedes resolverlo usando un bucle `for`
   // Nota: Los números 0 y 1 NO son considerados números primos
-  for(let i = 2, s = Math.sqrt(num); i <= s; i++)
-        if(num % i === 0) return false; 
-    return num > 1;
+  for(let i = 2, s = Math.sqrt(numero); i <= s; i++){
+    if(numero % i === 0){
+      return false;
+    }  
+  }
+    return numero > 1;
 }
 
 function esVerdadero(valor){
@@ -197,7 +200,7 @@ function tablaDelSeis(){
   //La función devuelve un array con los resultados de la tabla de multiplicar del 6 en orden creciente.
   //Escribe tu código aquí   
   let tabla = [];
-  for (let i = 6; i < 61; 6+6) {
+  for (let i = 0; i <= 60; i = i + 6) {
     tabla.push(i);
   }
   return tabla;
@@ -206,7 +209,7 @@ function tablaDelSeis(){
 function tieneTresDigitos(numero){
   //Leer un número entero y retornar true si tiene 3 dígitos. Caso contrario, retorna false.
   //Escribe tu código aquí
-  var num = toString(numero);
+  var num = String(numero);
   return num.length === 3;
 }
 
@@ -214,11 +217,12 @@ function doWhile(numero) {
   //Implementar una función tal que vaya aumentando el valor recibido en 5 hasta un límite de 8 veces
   //Retornar el valor final.
   //Usar el bucle do ... while.
-  var cont = 0;
+  var cont = 1;
   do{
     numero = numero + 5;
-    cont++
+    cont++;
   } while (cont <= 8);
+  return numero;
 }
 
 
