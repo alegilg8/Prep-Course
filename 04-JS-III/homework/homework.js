@@ -10,14 +10,14 @@ function devolverPrimerElemento(array) {
 function devolverUltimoElemento(array) {
   // Devuelve el último elemento de un array
   // Tu código:
-  return array[array.lenght - 1];
+  return array[array.length - 1];
 }
 
 
 function obtenerLargoDelArray(array) {
   // Devuelve el largo de un array
   // Tu código:
-  return array.lenght;
+  return array.length;
 }
 
 
@@ -77,15 +77,14 @@ function arrayContiene(array, elemento) {
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
 
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i <= array.length; i++) {
     if(array[i] === elemento){
       return true;
     }
-    else{
-      return false;
-    }
   }
+  return false;
 }
+
 
 
 function agregarNumeros(numeros) {
@@ -105,8 +104,8 @@ function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser una matriz de enteros (int/integers)
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
-  var suma = agregarNumeros(resultado);
-  var cant = resultadosTest.lenght;
+  var suma = agregarNumeros(resultadosTest);
+  var cant = resultadosTest.length;
   var promedio = suma/cant;
   
   return promedio;
@@ -134,6 +133,10 @@ function multiplicarArgumentos() {
   // Escribe tu código aquí:
   var numeros = Array.from(arguments);
   var multiplicacion = 1;
+
+  if (numeros.length === 0) {
+    return 0;
+  }  
 
   for (let i = 0; i < numeros.length; i++) {
     multiplicacion = multiplicacion * numeros[i];
@@ -165,7 +168,7 @@ function diaDeLaSemana(numeroDeDia) {
     return "Es fin de semana";
   }
   else{
-    return "Es dia laboral";
+    return "Es dia Laboral";
   }
 } 
 
@@ -176,7 +179,7 @@ function empiezaConNueve(n) {
   //Escribe tu código aquí
   var numero = String(n);
   
-  if (numero[0] === 9){
+  if (numero[0] === "9"){
     return true;
   }
   else{
@@ -211,9 +214,9 @@ function mesesDelAño(array) {
     if (array[i] === "Enero" || array[i] === "Marzo" || array[i] === "Noviembre") {
       nuevo.push(array[i]);
     }
-    else if(i === array.lenght - 1){
-      return "No se encontraron los meses pedidos";
-    }
+  }
+  if (nuevo.indexOf("Enero") === -1 || nuevo.indexOf("Marzo") === -1 || nuevo.indexOf("Noviembre") === -1){
+    return "No se encontraron los meses pedidos";
   }
   return nuevo;
 }
@@ -250,13 +253,13 @@ function breakStatement(numero) {
     if (cont === 1){
       aux = numero + 2;
       numeros.push(aux);
-      if(aux === cont) return "Se interrumpio la ejecución";
+      if(aux === cont) return "Se interrumpió la ejecución";
       cont++;
     }
     else{
       aux = aux + 2;
       numeros.push(aux);
-      if(aux === cont) return "Se interrumpio la ejecución";
+      if(aux === cont) return "Se interrumpió la ejecución";
       cont++;
     }
   }
